@@ -29,6 +29,8 @@ namespace Eversign;
 use Eversign\CheckboxField;
 use JMS\Serializer\Annotation\Type;
 
+use Eversign\Requireable;
+
 /**
  * Radio Button fields come with a fixed pixel width and height of 14x14.
  * The additional group parameter is used to identify radio button groups
@@ -36,6 +38,8 @@ use JMS\Serializer\Annotation\Type;
  * @author Patrick Leeb
  */
 class RadioField extends CheckboxField {
+
+    use Requireable;
 
      /**
      * This parameter is used to identify radio button groups.
@@ -48,6 +52,8 @@ class RadioField extends CheckboxField {
     public function __construct() {
         parent::__construct();
         $this->setGroup(0);
+        // NIMBLE
+        $this->setRequired(false);
     }
 
     public function getGroup() {
